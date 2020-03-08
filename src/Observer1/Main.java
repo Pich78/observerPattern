@@ -1,4 +1,4 @@
-package sample;
+package Observer1;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
-        System.out.println("Test");
+        System.out.println("Test Observer 1");
         Card card = new Card("Test Card");
         Observer list = new List(card);
         card.add(list);

@@ -1,4 +1,4 @@
-package sample;
+package Observer2;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class Card implements Observable {
 
     public void sendNotify() {
         for (Observer observer : observerList) {
-            observer.update();
+            observer.update(this.getValue());
         }
     }
 

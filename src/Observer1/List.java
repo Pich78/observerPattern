@@ -1,4 +1,4 @@
-package sample;
+package Observer1;
 
 public class List implements Observer {
 

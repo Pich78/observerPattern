@@ -1,4 +1,4 @@
-package sample;
+package Observer1;
 
 public interface Observable {
     public void add(Observer observer);
