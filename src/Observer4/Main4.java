@@ -1,4 +1,4 @@
-package Observer2;
+package Observer4;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,26 +6,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main2 extends Application {
+public class Main4 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Test Observer 2");
+        primaryStage.setTitle("Test Observer 4");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
         System.out.println("--------------------------------------------------------------------------------");
-        System.out.println("Test Observer 2");
+        System.out.println("Test Observer 4");
         System.out.println("The observable is injected in the constructor of the observer.");
+        System.out.println("Concrete observable and observer are generic.");
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Create an Integer Observable");
         System.out.println("--------------------------------------------------------------------------------");
-        ConcreteObservableInteger observableInteger = new ConcreteObservableInteger("Integer Observable");
+        ConcreteObservable<Integer> observableInteger = new ConcreteObservable<Integer>("Integer Observable");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer1 = new ConcreteObserverInteger(observableInteger,"Integer Observer 1");
+        ConcreteObserver<Integer> observer1 = new ConcreteObserver<Integer>(observableInteger,"Integer Observer 1");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer2 = new ConcreteObserverInteger(observableInteger,"Integer Observer 2");
+        ConcreteObserver<Integer> observer2 = new ConcreteObserver<Integer>(observableInteger,"Integer Observer 2");
         System.out.println("--------------------------------------------------------------------------------");
         observableInteger.add(observer1);
         System.out.println("--------------------------------------------------------------------------------");
@@ -41,11 +42,11 @@ public class Main2 extends Application {
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Create a String Observable");
         System.out.println("--------------------------------------------------------------------------------");
-        ConcreteObservableString observableString = new ConcreteObservableString("String Observable");
+        ConcreteObservable<String> observableString = new ConcreteObservable<String>("String Observable");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer3 = new ConcreteObserverString(observableString,"String Observer 3");
+        ConcreteObserver<String> observer3 = new ConcreteObserver<String>(observableString,"String Observer 3");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer4 = new ConcreteObserverString(observableString,"String Observer 4");
+        ConcreteObserver<String> observer4 = new ConcreteObserver<String>(observableString,"String Observer 4");
         System.out.println("--------------------------------------------------------------------------------");
         observableString.add(observer3);
         System.out.println("--------------------------------------------------------------------------------");
