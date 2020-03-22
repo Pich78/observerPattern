@@ -1,4 +1,4 @@
-package Observer3;
+package ObserverY;
 
 public class List<T> implements Observer<T> {
 

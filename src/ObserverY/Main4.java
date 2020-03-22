@@ -1,4 +1,4 @@
-package Observer4;
+package ObserverY;
 
 import javafx.application.Application;
 import javafx.beans.InvalidationListener;

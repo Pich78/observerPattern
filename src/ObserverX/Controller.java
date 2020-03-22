@@ -1,4 +1,4 @@
-package Observer4;
+package ObserverX;
 
 public class Controller {
 }

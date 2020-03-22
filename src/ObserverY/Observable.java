@@ -1,4 +1,4 @@
-package Observer3;
+package ObserverY;
 
 public interface Observable<T> {
     public void add(Observer<T> observer);
