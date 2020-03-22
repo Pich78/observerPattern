@@ -23,5 +23,15 @@ In this implementation of the observer pattern, the concrete observable class is
 ##### Problems
 - In each concrete observer, there is the reference to a concrete observable;
 
+### Project Observer3:
+
+#### The observed value is passed when the update method is called. The interfaces are generic.
+In this implementation of the observer pattern, the observed value is stored inside the observable class.
+When the `observable.sendNotify` is called to update all the observers, then the observed value is passed as an argument to the `observer.update` method.
+##### Advantages
+- This solves the problem of Project Observer 1, because the interfaces are generic, so there are only one interface for Observer and one interface for Observable.
+##### Problems
+- This example works only because the **usage** of the observed data done in the Observer class is donw with a `System.out.println(...)` that can accept and use `Strings` and `Integer` types.
+
 
 
