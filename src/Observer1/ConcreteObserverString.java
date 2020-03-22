@@ -1,15 +1,12 @@
 package Observer1;
 
-public class ConcreteObserverString implements Observer {
+public class ConcreteObserverString implements IObserverString {
 
-    ConcreteObservableString observable;
     String observerName;
 
-    public ConcreteObserverString(ConcreteObservableString observable, String observerName) {
+    public ConcreteObserverString(String observerName) {
         this.observerName = observerName;
         System.out.println("  Observer: " + this.observerName + " - Build: ");
-        this.observable = observable;
-        System.out.println("  Observer: " + this.observerName + " - " + observable.getObservableName() + " assigned in the constructor");
     }
 
     @Override
@@ -19,8 +16,7 @@ public class ConcreteObserverString implements Observer {
 
 
     @Override
-    public void update() {
-        System.out.println("  Observer: "  + this.observerName + " update");
-        System.out.println("  Observer: "  + this.observerName + " call internal reference of the observable: " + this.observable.getObservedValue());
+    public void update(String observedString) {
+        System.out.println("  Observer: "  + this.observerName + " update value: " + observedString);
     }
 }

@@ -1,32 +1,32 @@
-package Observer1;
+package Observer2;
+
 import java.util.ArrayList;
 
-public class ConcreteObservableInteger implements IObservableInteger {
+public class ConcreteObservableString implements Observable {
 
-    ArrayList<IObserverInteger> observerList = new ArrayList<>();
+    ArrayList<Observer> observerList = new ArrayList<>();
     String observableName;
-    int observedValue;
+    String observedValue;
 
-    public ConcreteObservableInteger(String observableName) {
+    public ConcreteObservableString(String observableName) {
         this.observableName = observableName;
         System.out.println("Observable: " + this.observableName + " - Build");
     }
 
-    public void add(IObserverInteger observer) {
+    public void add(Observer observer) {
         observerList.add(observer);
         System.out.println("Observable: " + this.observableName + " - Add observer: " + observer.getObserverName());
     }
 
-    public void remove(IObserverInteger observer) {
+    public void remove(Observer observer) {
         observerList.remove(observer);
         System.out.println("Observable: " + this.observableName + " - Remove observer: " + observer.getObserverName());
     }
 
-    @Override
     public void sendNotify() {
         System.out.println("Observable: " + this.observableName + " - Notify to all observers");
-        for (IObserverInteger observer : observerList) {
-            observer.update(this.observedValue);
+        for (Observer observer : observerList) {
+            observer.update();
         }
     }
 
@@ -34,12 +34,12 @@ public class ConcreteObservableInteger implements IObservableInteger {
         return this.observableName;
     }
 
-    public int getObservedValue() {
+    public String getObservedValue() {
         System.out.println("Observable: getObservedValue");
         return this.observedValue;
     }
 
-    public void setObservedValue(int observedValue) {
+    public void setObservedValue(String observedValue) {
         System.out.println("Observable: setObservedValue: " + observedValue);
         this.observedValue = observedValue;
     }

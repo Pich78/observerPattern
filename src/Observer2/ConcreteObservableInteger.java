@@ -1,9 +1,10 @@
-package Observer1;
+package Observer2;
+
 import java.util.ArrayList;
 
-public class ConcreteObservableInteger implements IObservableInteger {
+public class ConcreteObservableInteger implements Observable {
 
-    ArrayList<IObserverInteger> observerList = new ArrayList<>();
+    ArrayList<Observer> observerList = new ArrayList<>();
     String observableName;
     int observedValue;
 
@@ -12,21 +13,20 @@ public class ConcreteObservableInteger implements IObservableInteger {
         System.out.println("Observable: " + this.observableName + " - Build");
     }
 
-    public void add(IObserverInteger observer) {
+    public void add(Observer observer) {
         observerList.add(observer);
         System.out.println("Observable: " + this.observableName + " - Add observer: " + observer.getObserverName());
     }
 
-    public void remove(IObserverInteger observer) {
+    public void remove(Observer observer) {
         observerList.remove(observer);
         System.out.println("Observable: " + this.observableName + " - Remove observer: " + observer.getObserverName());
     }
 
-    @Override
     public void sendNotify() {
         System.out.println("Observable: " + this.observableName + " - Notify to all observers");
-        for (IObserverInteger observer : observerList) {
-            observer.update(this.observedValue);
+        for (Observer observer : observerList) {
+            observer.update();
         }
     }
 

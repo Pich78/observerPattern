@@ -2,9 +2,9 @@ package Observer1;
 
 import java.util.ArrayList;
 
-public class ConcreteObservableString implements Observable {
+public class ConcreteObservableString implements IObservableString {
 
-    ArrayList<Observer> observerList = new ArrayList<>();
+    ArrayList<IObserverString> observerList = new ArrayList<>();
     String observableName;
     String observedValue;
 
@@ -13,20 +13,20 @@ public class ConcreteObservableString implements Observable {
         System.out.println("Observable: " + this.observableName + " - Build");
     }
 
-    public void add(Observer observer) {
+    public void add(IObserverString observer) {
         observerList.add(observer);
         System.out.println("Observable: " + this.observableName + " - Add observer: " + observer.getObserverName());
     }
 
-    public void remove(Observer observer) {
+    public void remove(IObserverString observer) {
         observerList.remove(observer);
         System.out.println("Observable: " + this.observableName + " - Remove observer: " + observer.getObserverName());
     }
 
     public void sendNotify() {
         System.out.println("Observable: " + this.observableName + " - Notify to all observers");
-        for (Observer observer : observerList) {
-            observer.update();
+        for (IObserverString observer : observerList) {
+            observer.update(this.observedValue);
         }
     }
 

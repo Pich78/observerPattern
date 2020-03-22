@@ -17,15 +17,15 @@ public class Main1 extends Application {
 
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Test Observer 1");
-        System.out.println("The observable is passed in the constructor of the observer.");
+        System.out.println("The observed value is passed when the update method is called.");
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Create an Integer Observable");
         System.out.println("--------------------------------------------------------------------------------");
         ConcreteObservableInteger observableInteger = new ConcreteObservableInteger("Integer Observable");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer1 = new ConcreteObserverInteger(observableInteger,"Integer Observer 1");
+        IObserverInteger observer1 = new ConcreteObserverInteger("Integer Observer 1");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer2 = new ConcreteObserverInteger(observableInteger,"Integer Observer 2");
+        IObserverInteger observer2 = new ConcreteObserverInteger("Integer Observer 2");
         System.out.println("--------------------------------------------------------------------------------");
         observableInteger.add(observer1);
         System.out.println("--------------------------------------------------------------------------------");
@@ -43,9 +43,9 @@ public class Main1 extends Application {
         System.out.println("--------------------------------------------------------------------------------");
         ConcreteObservableString observableString = new ConcreteObservableString("String Observable");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer3 = new ConcreteObserverString(observableString,"String Observer 3");
+        IObserverString observer3 = new ConcreteObserverString("String Observer 3");
         System.out.println("--------------------------------------------------------------------------------");
-        Observer observer4 = new ConcreteObserverString(observableString,"String Observer 4");
+        IObserverString observer4 = new ConcreteObserverString("String Observer 4");
         System.out.println("--------------------------------------------------------------------------------");
         observableString.add(observer3);
         System.out.println("--------------------------------------------------------------------------------");
