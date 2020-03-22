@@ -31,7 +31,17 @@ When the `observable.sendNotify` is called to update all the observers, then the
 ##### Advantages
 - This solves the problem of Project Observer 1, because the interfaces are generic, so there are only one interface for Observer and one interface for Observable.
 ##### Problems
-- This example works only because the **usage** of the observed data done in the Observer class is donw with a `System.out.println(...)` that can accept and use `Strings` and `Integer` types.
+- This example works only because the **usage** of the observed data done in the Observer class is done with a `System.out.println(...)` that can accept and use `Strings` and `Integer` types.
 
+### Project Observer4:
 
+#### The observable is injected in the constructor of the observer. The concrete classes are generic.
+In this implementation of the observer pattern, the concrete observable class is passed as an argument **to the constructor** of each observer. Moreover, the concrete Observer and Observable are generic.
+##### Advantages
+- The Interface classes are without generics, so pattern is clean;
+- The dependence from the specific data is only in the concrete classes;
+- The only dependence from data type is related to return value of the `this.observable.getObservedValue()`
+
+##### Problems
+- This example works only because the **usage** of the observed data done in the Observer class is done with a `System.out.println(...)` that can accept and use `Strings` and `Integer` types returned from `this.observable.getObservedValue()` method;
 
