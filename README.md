@@ -45,3 +45,16 @@ In this implementation of the observer pattern, the concrete observable class is
 ##### Problems
 - This example works only because the **usage** of the observed data done in the Observer class is done with a `System.out.println(...)` that can accept and use `Strings` and `Integer` types returned from `this.observable.getObservedValue()` method;
 
+### Project Observer5:
+
+#### The observed value is passed when the update method is called. A generic data manager is added.
+In this implementation of the observer pattern, the observed value is stored inside the observable class.
+When the `observable.sendNotify` is called to update all the observers, then the observed value is passed as an argument to the `observer.update` method.
+Now the Observer is not aware of the data type, because it only passes it to the data manager.
+The data manager is passed in the constructor of the Observer.
+
+##### Advantages
+- This solves the problem of Project Observer 3, because the Observer does not contain any relationship with the data type to be processed.
+
+##### Problems
+- Even if the Observer is not dependent from the data type, you still have to create different object for different data type with the same internal behavior.
